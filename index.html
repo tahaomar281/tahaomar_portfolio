@@ -24,6 +24,7 @@ body { font-family: 'Source Sans 3', sans-serif; background: var(--off-white); c
 .sidebar-nav { flex: 1; padding: 1.25rem 0; }
 .sidebar-nav a { display: flex; align-items: center; gap: 0.65rem; padding: 0.72rem 1.6rem; color: rgba(255,255,255,0.52); text-decoration: none; font-size: 0.88rem; font-weight: 400; letter-spacing: 0.02em; transition: all 0.16s; border-left: 2px solid transparent; cursor: pointer; }
 .sidebar-nav a:hover { color: #fff; background: rgba(255,255,255,0.04); }
+.sidebar-nav a:focus-visible, .mobile-menu a:focus-visible, .btn:focus-visible, .quick-link:focus-visible, .btn-publish:focus-visible, .back-btn:focus-visible, .btn-submit:focus-visible, .btn-cancel-m:focus-visible, .btn-confirm-pub:focus-visible, .modal-close:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .sidebar-nav a.active { color: #fff; border-left-color: var(--accent); background: rgba(255,255,255,0.06); }
 .nav-icon { font-size: 0.88rem; opacity: 0.75; width: 16px; text-align: center; }
 .sidebar-social { padding: 1rem 1.6rem 2rem; border-top: 1px solid rgba(255,255,255,0.07); display: flex; gap: 0.55rem; }
@@ -91,7 +92,8 @@ body { font-family: 'Source Sans 3', sans-serif; background: var(--off-white); c
 .exp-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 0.5rem; }
 .exp-role { font-family: 'Lora', serif; font-size: 1.1rem; font-weight: 500; color: var(--navy); }
 .exp-date { font-size: 0.74rem; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; white-space: nowrap; }
-.exp-company { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1rem; }
+.exp-company { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1rem; line-height: 1.5; }
+.exp-card, .involve-item, .contact-form-wrap, .home-card, .blog-card, .contact-item { box-shadow: 0 1px 0 rgba(0,0,0,0.02); }
 .exp-company span { font-weight: 500; color: var(--text); }
 .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
 .exp-bullets li { font-size: 0.92rem; color: #555; font-weight: 300; line-height: 1.7; padding-left: 1.2rem; position: relative; }
@@ -218,7 +220,7 @@ body { font-family: 'Source Sans 3', sans-serif; background: var(--off-white); c
 <!-- MOBILE BAR -->
 <div class="mobile-bar">
   <span class="brand">Taha Omar</span>
-  <button class="hamburger" onclick="toggleMobile()" aria-label="Menu">☰</button>
+  <button type="button" class="hamburger" onclick="toggleMobile()" aria-label="Menu">☰</button>
 </div>
 <nav class="mobile-menu" id="mobileMenu">
   <a onclick="nav('home')" data-page="home" class="active">⌂  Home</a>
@@ -244,7 +246,7 @@ body { font-family: 'Source Sans 3', sans-serif; background: var(--off-white); c
     <a onclick="nav('contact')" data-page="contact"><span class="nav-icon">✉</span>Contact</a>
   </nav>
   <div class="sidebar-social">
-    <a href="https://linkedin.com/in/yourprofile" target="_blank" title="LinkedIn">in</a>
+    <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" title="LinkedIn">in</a>
     <a href="mailto:tahaomar2963@gmail.com" title="Email">@</a>
   </div>
 </aside>
@@ -267,8 +269,8 @@ body { font-family: 'Source Sans 3', sans-serif; background: var(--off-white); c
         <span class="hero-badge">Class of 2026</span>
       </div>
       <div class="hero-cta-row">
-        <button class="btn btn-primary" onclick="nav('about')">About Me</button>
-        <button class="btn btn-ghost" onclick="nav('experience')">My Experience</button>
+        <button type="button" class="btn btn-primary" onclick="nav('about')">About Me</button>
+        <button type="button" class="btn btn-ghost" onclick="nav('experience')">My Experience</button>
       </div>
     </div>
   </div>
@@ -289,11 +291,11 @@ body { font-family: 'Source Sans 3', sans-serif; background: var(--off-white); c
       <div class="home-card-header"><span class="home-card-title">Explore</span></div>
       <div class="home-card-body">
         <div class="quick-links">
-          <button class="quick-link" onclick="nav('about')">👤 About Me</button>
-          <button class="quick-link" onclick="nav('experience')">💼 Experience</button>
-          <button class="quick-link" onclick="nav('blog')">✍ Blog</button>
-          <button class="quick-link" onclick="nav('involvement')">🤝 Involvement</button>
-          <button class="quick-link" onclick="nav('contact')">✉ Contact</button>
+          <button type="button" class="quick-link" onclick="nav('about')">👤 About Me</button>
+          <button type="button" class="quick-link" onclick="nav('experience')">💼 Experience</button>
+          <button type="button" class="quick-link" onclick="nav('blog')">✍ Blog</button>
+          <button type="button" class="quick-link" onclick="nav('involvement')">🤝 Involvement</button>
+          <button type="button" class="quick-link" onclick="nav('contact')">✉ Contact</button>
         </div>
       </div>
     </div>
@@ -325,7 +327,6 @@ body { font-family: 'Source Sans 3', sans-serif; background: var(--off-white); c
           <h3>Personal</h3>
           <p>Outside of work and academics, I've been a fan of soccer and have supported FC Barcelona for as long as I can remember. I also took up weightlifting a little over two years ago and it has since become a passion of mine. Beyond that, I have a strong interest in cars and motorbikes and enjoy keeping up with the latest in both. More recently, I have also developed a habit of staying informed on current events, especially in areas like business, technology, and geopolitics, because I enjoy understanding what is happening in the world and how different industries and global trends connect.</p>
           <p>I was raised in Pakistan before moving to the United States for university, and experiencing life in both countries has given me insight into two very different cultures and lifestyles. I’m incredibly grateful for that experience, as it has allowed me to develop a broader, more diverse perspective with which to approach any given situation. In addition, I’ve been fortunate to travel to many places in Europe and Asia, which has only deepened my appreciation for different people, cultures, and ways of thinking. </p>
-        </div>
         </div>
       </div>
     </div>
@@ -421,12 +422,12 @@ body { font-family: 'Source Sans 3', sans-serif; background: var(--off-white); c
     <div id="blogListView">
       <div class="blog-toolbar">
         <h3>Articles &amp; Posts</h3>
-        <button class="btn-publish" onclick="openModal()">+ Publish New Post</button>
+        <button type="button" class="btn-publish" onclick="openModal()">+ Publish New Post</button>
       </div>
       <div class="blog-list" id="blogList"></div>
     </div>
     <div class="post-reader" id="postReader">
-      <button class="back-btn" onclick="closePR()">← Back to Blog</button>
+      <button type="button" class="back-btn" onclick="closePR()">← Back to Blog</button>
       <div class="post-article" id="postArticle"></div>
     </div>
   </div>
@@ -504,7 +505,7 @@ body { font-family: 'Source Sans 3', sans-serif; background: var(--off-white); c
             <div class="contact-item-icon">📞</div>
             <div><div class="contact-item-label">Phone</div><div class="contact-item-value">(940) 343-2357</div></div>
           </a>
-          <a class="contact-item" href="https://linkedin.com/in/yourprofile" target="_blank">
+          <a class="contact-item" href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">
             <div class="contact-item-icon" style="font-size:0.75rem;font-weight:700;">in</div>
             <div><div class="contact-item-label">LinkedIn</div><div class="contact-item-value">Update with your LinkedIn URL →</div></div>
           </a>
@@ -524,7 +525,7 @@ body { font-family: 'Source Sans 3', sans-serif; background: var(--off-white); c
           <label class="form-label">Message</label>
           <textarea class="form-textarea" id="cMsg" placeholder="What would you like to discuss?"></textarea>
         </div>
-        <button class="btn-submit" onclick="submitContact()">Send Message</button>
+        <button type="button" class="btn-submit" onclick="submitContact()">Send Message</button>
         <div class="form-success" id="contactSuccess">✓ Thanks! I'll get back to you soon.</div>
       </div>
     </div>
@@ -539,7 +540,7 @@ body { font-family: 'Source Sans 3', sans-serif; background: var(--off-white); c
   <div class="modal-box">
     <div class="modal-header">
       <span class="modal-header-title">Publish New Post</span>
-      <button class="modal-close" onclick="closeModal()">✕</button>
+      <button type="button" class="modal-close" onclick="closeModal()">✕</button>
     </div>
     <div class="modal-body">
       <div class="modal-row">
@@ -578,8 +579,8 @@ Keep paragraphs to 25–35 words for readability. Conversational but professiona
       </div>
     </div>
     <div class="modal-footer">
-      <button class="btn-cancel-m" onclick="closeModal()">Cancel</button>
-      <button class="btn-confirm-pub" onclick="publishPost()">Publish Post</button>
+      <button type="button" class="btn-cancel-m" onclick="closeModal()">Cancel</button>
+      <button type="button" class="btn-confirm-pub" onclick="publishPost()">Publish Post</button>
     </div>
   </div>
 </div>
@@ -597,7 +598,9 @@ function savePosts(p) { localStorage.setItem(STORAGE_KEY, JSON.stringify(p)); }
 function nav(page) {
   document.querySelectorAll('.page').forEach(el => el.classList.remove('active'));
   document.querySelectorAll('[data-page]').forEach(el => el.classList.remove('active'));
-  document.getElementById('page-' + page).classList.add('active');
+  const targetPage = document.getElementById('page-' + page);
+  if (!targetPage) return;
+  targetPage.classList.add('active');
   document.querySelectorAll('[data-page="' + page + '"]').forEach(el => el.classList.add('active'));
   if (page === 'blog') { closePR(); renderBlog(); }
   window.scrollTo(0, 0);
